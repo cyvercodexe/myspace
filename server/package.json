@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "myspace server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khaokci/myspace.git"
+  },
+  "author": "khaokci",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khaokci/myspace/issues"
+  },
+  "homepage": "https://github.com/Khaokci/myspace#readme"
+}
