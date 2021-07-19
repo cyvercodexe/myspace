@@ -1,9 +1,5 @@
-const fs = require("fs");
-const sha256 = require("crypto-js/sha256")
-
-function newUser(user, password) {
-    dir = process.cwd();
-    server = `${dir}/server/profiles/${user}`
+{
+server = `${dir}/server/profiles/${user}`
     client = `${dir}/client/profiles/${user}`
     fs.mkdirSync(server, { recursive: true })
     fs.mkdirSync(client, { recursive: true })
