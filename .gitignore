@@ -2,3 +2,5 @@ profiles/
 stats.json
 
 node_modules/
+LICENSE
+Makefile
