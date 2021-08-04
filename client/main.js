@@ -51,4 +51,9 @@ async function loadProfile(id) {
 	$.body.innerHTML = $.body.innerHTML.replaceAll("USERNAME", id);
 	$.body.innerHTML = $.body.innerHTML.replaceAll("USER", info.name);
 	$.body.innerHTML = $.body.innerHTML.replaceAll("DOMAIN", location.origin);
-}; loadProfile("tom")
+}; let hash = window.location.hash;
+if (hash == "" || hash == "#") {
+    loadProfile("tom")
+} else {
+    loadProfile(hash.replace("#", ""))
+}
