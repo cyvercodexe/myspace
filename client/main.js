@@ -1,5 +1,7 @@
 var $ = document;
 
+window.onhashchange = () => {location.reload()};
+
 async function loadProfile(id) {
 	let tables = await (await fetch(`profiles/${id}/tables.json`)).json();
 	let about = await (await fetch(`profiles/${id}/about.json`)).json();
@@ -21,7 +23,7 @@ async function loadProfile(id) {
 
 	let newFriend = async (index) => {
 		user = await (await fetch(`profiles/${about.friends[index]}/info.json`)).json();
-		$.querySelector(".box.friends .list").innerHTML += `<div class="friend"><a href="">${user.name}<img src="/profiles/${about.friends[index]}/pfp.jpg"></img></div>`
+		$.querySelector(".box.friends .list").innerHTML += `<div class="friend"><a href="#${about.friends[index]}">${user.name}<img src="profiles/${about.friends[index]}/pfp.jpg"></img></div>`
 	}
 		
 	if (about.friends.length >= 8) {
@@ -48,12 +50,14 @@ async function loadProfile(id) {
 		}
 	}
 
-	$.body.innerHTML = $.body.innerHTML.replaceAll("USERNAME", id);
-	$.body.innerHTML = $.body.innerHTML.replaceAll("USER", info.name);
-	$.body.innerHTML = $.body.innerHTML.replaceAll("DOMAIN", location.origin);
-}; let hash = window.location.hash;
+	$.body.innerHTML = $.body.innerHTML.replaceAll("USERNAME", id).replaceAll("USER", info.name).replaceAll("DOMAIN", location.origin);
+
+	$.head.innerHTML += `<link rel="stylesheet" href="profiles/${id}/user.css">`
+}
+
+let hash = window.location.hash;
 if (hash == "" || hash == "#") {
-    loadProfile("tom")
+	loadProfile("tom")
 } else {
-    loadProfile(hash.replace("#", ""))
+	loadProfile(hash.replace("#", ""))
 }
