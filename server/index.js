@@ -4,9 +4,10 @@ const sha = require("crypto-js/sha256");
 
 
 var users = {
+	// Creates new users
 	new: (user, password) => {
-		server = `${dir}/server/profiles/${user}`
-		client = `${dir}/client/profiles/${user}`
+		let server = `${dir}/server/profiles/${user}`
+		let client = `${dir}/client/profiles/${user}`
 
 		fs.mkdirSync(server, { recursive: true })
 		fs.mkdirSync(client, { recursive: true })
@@ -41,7 +42,34 @@ var users = {
 				}
 			]
 		}), "utf8")
+
+		fs.writeFileSync(`${client}/user.css`, "/* Your custom CSS */", "utf8")
 	},
+	// Makes profiles in premade_profiles/
+	// Also deletes existing ones
+	premade: () => {
+		let premade = `${dir}/server/premade_profiles`
+		fs.readdir(premade, (err, files) => {
+			if (err) {throw err}
+
+			files.forEach(file => {
+				let profile = `${dir}/client/profiles/${file}`
+				if (fs.existsSync(profile)) {
+					fs.rmSync(profile, {recursive: true});
+				}
+
+				fs.readdir(`${premade}/${file}`, (err, profile_files) => {
+					if (err) {throw err}
+
+					fs.mkdirSync(profile, (err) => {if (err) {throw err}});
+					profile_files.forEach(profile_file => {
+						fs.copyFileSync(`${premade}/${file}/${profile_file}`, `${profile}/${profile_file}`);
+					})
+				})
+			})
+		})
+	},
+	// Generates stats.json
 	stats: () => {
 		let users = [];
 		fs.readdir(`${dir}/client/profiles`, (err, files) => {
@@ -59,3 +87,4 @@ var users = {
 
 //users.new("tom", "test")
 users.stats()
+users.premade()

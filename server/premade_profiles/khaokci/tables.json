@@ -1,0 +1,71 @@
+[
+	{
+		"title": "USER's Interests",
+		"contents": [
+			{
+				"title": "General",
+				"content": "game dev n shit"
+			},
+			{
+				"title": "Music",
+				"content": "happy hardcore, hyperpop"
+			},
+			{
+				"title": "Movies",
+				"content": "scott pilgrim, marvel"
+			},
+			{
+				"title": "Books",
+				"content": "if comics count, marvel"
+			}
+		]
+	},
+	{
+		"title": "USER's Details",
+		"contents": [
+			{
+				"title": "Status:",
+				"content": "Better than you"
+			},
+			{
+				"title": "Here for:",
+				"content": "Being better than you"
+			},
+			{
+				"title": "Hometown:",
+				"content": "Everywhere"
+			},
+			{
+				"title": "Ethnicity:",
+				"content": "G O D"
+			},
+			{
+				"title": "Zodic Sign:",
+				"content": "Libra"
+			},
+			{
+				"title": "Smoke / Drink:",
+				"content": "Who knows"
+			},
+			{
+				"title": "Occupation:",
+				"content": "Being a God"
+			}
+		]
+	},
+		{
+		"title": "USER's Schools",
+		"colors": ["#000000"],
+		"width": 1075,
+		"contents": [
+			{
+				"title": "<div style='color: #000000;font-weight:normal;'",
+				"content": ""
+			},
+			{
+				"title": "<div style='color: #000000;font-weight:normal;'",
+				"content": ""
+			}
+		]
+	}
+]
